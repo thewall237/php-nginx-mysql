@@ -1,4 +1,4 @@
-FROM php:8.0.2-fpm
+FROM php:8.1.6-fpm
 
 # COPY php.ini
 COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
@@ -21,4 +21,5 @@ RUN apt-get update && \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install pdo_mysql bcmath
 
+RUN mkdir src
 WORKDIR /var/www/html
